@@ -1,21 +1,33 @@
-# Stage 1: Build Angular app
-FROM node:current-alpine AS builder
-WORKDIR /
-COPY . /app
-RUN npm install -g @angular/cli
-RUN cd /app && npm install 
-RUN cd /app && ng build --configuration=production
+# Use official node image as the base image
+FROM node:lts as build
 
+ADD ./package.json /tmp/package.json
+RUN cd /tmp && npm install
+RUN mkdir -p /usr/local/app && cp -a /tmp/node_modules /usr/local/app/
 
-# Stage 2: Serve Angular app using Nginx
-FROM nginx:alpine
+WORKDIR /usr/local/app
 
-RUN rm /etc/nginx/conf.d/default.conf
-COPY /nginx.conf /etc/nginx/conf.d
+# Add the source code from the app to the container
+COPY ./ /usr/local/app/
 
-# Copy the built Angular app to the appropriate location in the container
-COPY --from=builder /app/dist/portfolio /usr/share/nginx/html
+# Generate the build of the application
+RUN npm run build
 
+# Stage 2: Serve app with nginx server
+# Use official nginx image as the base image
+FROM nginx:latest
 
+# Copy the build output to replace the default nginx contents.
+COPY --from=build /usr/local/app/dist/build/browser /usr/share/nginx/html
 
-EXPOSE 80
+# This line is IMPORTANT, we will breakdown it on a minute.
+COPY ./entrypoint.sh /usr/local/app/entrypoint.sh
+
+# Copy the nginx conf that we created to the container
+COPY ./nginx.conf  /etc/nginx/conf.d/default.conf
+
+# Expose ports
+EXPOSE 80 443 6006 4200
+
+RUN chmod +x /usr/local/app/entrypoint.sh
+ENTRYPOINT [ "/usr/local/app/entrypoint.sh" ]
