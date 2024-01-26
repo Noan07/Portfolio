@@ -12,8 +12,9 @@ steps:
     image: plugins/docker
     settings:
         dockerfile: portfolio/Dockerfile
-        context: portfolio/
+        context: .
         registry: hub.codefirst.iut.uca.fr
+        mirror: https://proxy.iut.uca.fr:8443
         repo: hub.codefirst.iut.uca.fr/noan.randon/portfolio_nrn
         username:
           from_secret: SECRET_REGISTRY_USERNAME
