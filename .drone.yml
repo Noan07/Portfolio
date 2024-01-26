@@ -14,5 +14,6 @@ steps:
     services:
       - docker:dind
     commands:
+      - cd portfolio/
       - docker build --pull -t  .
       - docker push 
