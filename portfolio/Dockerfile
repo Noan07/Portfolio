@@ -13,8 +13,6 @@ FROM nginx:alpine
 # Copy the built Angular app to the appropriate location in the container
 COPY --from=builder /app/dist/portfolio /usr/share/nginx/html
 
-# Expose port 80 for the Nginx server
-EXPOSE 80
+COPY /nginx.conf  /etc/nginx/conf.d/default.conf
 
-# Start the Nginx server when the container starts
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 80
