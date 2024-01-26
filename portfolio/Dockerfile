@@ -13,21 +13,5 @@ COPY ./ /usr/local/app/
 # Generate the build of the application
 RUN npm run build
 
-# Stage 2: Serve app with nginx server
-# Use official nginx image as the base image
-FROM nginx:latest
-
-# Copy the build output to replace the default nginx contents.
-COPY --from=build /usr/local/app/dist/portfolio/browser /usr/share/nginx/html
-
-# This line is IMPORTANT, we will breakdown it on a minute.
-COPY ./entrypoint.sh /usr/local/app/entrypoint.sh
-
-# Copy the nginx conf that we created to the container
-COPY ./nginx.conf  /etc/nginx/conf.d/default.conf
-
 # Expose ports
-EXPOSE 80 443 6006 4200
-
-RUN chmod +x /usr/local/app/entrypoint.sh
-ENTRYPOINT [ "/usr/local/app/entrypoint.sh" ]
+EXPOSE 80 
