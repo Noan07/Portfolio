@@ -1,2 +1,4 @@
 # portfolio_nrn
 
+
+k
