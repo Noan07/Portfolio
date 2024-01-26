@@ -20,3 +20,13 @@ steps:
           from_secret: SECRET_REGISTRY_USERNAME
         password:
           from_secret: SECRET_REGISTRY_PASSWORD
+
+  - name: deploy-server
+    image: hub.codefirst.iut.uca.fr/thomas.bellembois/codefirst-dockerproxy-clientdrone:latest
+    environment:
+        IMAGENAME: hub.codefirst.iut.uca.fr/noan.randon/portfolio_nrn:latest
+        CONTAINERNAME: portfolio_nrn
+        COMMAND: create
+        OVERWRITE: true
+        ADMINS: noanrandon
+    depends_on: [ build-docker-image ]
