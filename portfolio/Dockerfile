@@ -4,7 +4,7 @@ WORKDIR /
 COPY . /app
 RUN npm install -g @angular/cli
 RUN cd /app && npm install 
-RUN cd /app && ng build 
+RUN cd /app && ng build --configuration=production
 
 
 # Stage 2: Serve Angular app using Nginx
