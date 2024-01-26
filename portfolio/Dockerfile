@@ -11,7 +11,7 @@ RUN cd /app && ng build --configuration=production
 FROM nginx
 
 # Copy the built Angular app to the appropriate location in the container
-COPY /app/dist/portfolio /usr/share/nginx/html
+COPY /dist/portfolio /usr/share/nginx/html
 
 # Expose port 80 for the Nginx server
 EXPOSE 80
