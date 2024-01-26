@@ -11,5 +11,5 @@ steps:
   - name: build-docker-image
     image: plugins/docker
     command:
-      - docker build . -t portfolio_nrn
+      - docker build /portfolio -t portfolio_nrn
       - docker run -p 8080:80 -e ENVIRONMENT=Production -t portfolio_nrn
