@@ -8,5 +8,13 @@ RUN cd /app && ng build --configuration=production
 
 
 # Stage 2: Serve Angular app using Nginx
-FROM nginx:alpine
-COPY --from=builder /app/dist/portfolio /usr/share/nginx/html
+FROM nginx
+
+# Copy the built Angular app to the appropriate location in the container
+COPY /app/dist/portfolio /usr/share/nginx/html
+
+# Expose port 80 for the Nginx server
+EXPOSE 80
+
+# Start the Nginx server when the container starts
+CMD ["nginx", "-g", "daemon off;"]
