@@ -9,11 +9,14 @@ trigger:
 
 
 steps:
-  - name: build
-    image: docker:latest
-    services:
-      - docker:dind
-    commands:
-      - cd portfolio/
-      - docker build --pull -t  .
-      - docker push 
+  - name: build-docker-image
+    image: plugins/docker
+    settings:
+        dockerfile: portfolio/Dockerfile
+        context: portfolio/
+        registry: hub.codefirst.iut.uca.fr
+        repo: hub.codefirst.iut.uca.fr/noan.randon/portfolio_nrn
+        username:
+          from_secret: SECRET_REGISTRY_USERNAME
+        password:
+          from_secret: SECRET_REGISTRY_PASSWORD
