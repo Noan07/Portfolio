@@ -11,7 +11,7 @@ RUN cd /app && ng build --configuration=production
 FROM nginx:alpine
 
 RUN rm /etc/nginx/conf.d/default.conf
-COPY /app/nginx.conf /etc/nginx/conf.d
+COPY /nginx.conf /etc/nginx/conf.d
 
 # Copy the built Angular app to the appropriate location in the container
 COPY --from=builder /app/dist/portfolio /usr/share/nginx/html
