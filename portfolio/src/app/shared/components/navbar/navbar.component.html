@@ -1,0 +1,21 @@
+<nav class="navbar">
+    <mat-toolbar class="custom-toolbar">
+      <div class="toolbar-content">
+        <div class="logo-section">
+          <span class="logo">NRANDON</span>
+        </div>
+        <div class="center-section">
+          <span class="nav-item center-span" (click)="scrollToSection('accueil')">Accueil</span>
+          <span class="nav-item center-span" (click)="scrollToSection('presentation')">Présentation</span>
+          <span class="nav-item center-span" (click)="scrollToSection('portfolio')">Portfolio</span>
+          <span class="nav-item center-span" (click)="scrollToSection('competences')">Compétences</span>
+          <span class="nav-item center-span" (click)="scrollToSection('contact')">Contact</span>
+      </div>
+      
+        <div class="cv-section">
+          <button mat-button class="cv-button" (click)="ouvrirCV()">MON CV</button>
+        </div>        
+      </div>
+    </mat-toolbar>
+  </nav>
+  

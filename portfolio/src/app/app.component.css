@@ -1,0 +1,24 @@
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 15px;
+    background-color: #A9A9A9;
+    color: #DCDCDC;
+    border: none;
+    border-radius: 10%;
+    padding: 10px;
+    cursor: pointer;
+    opacity: 0; /* Initialment, la flèche est invisible */
+    transition: opacity 0.3s ease-in-out; /* Ajoutez une transition d'opacité pour l'effet d'apparition */
+  }
+  
+  .scroll-to-top.show {
+    opacity: 1; /* Lorsque la classe 'show' est ajoutée, la flèche devient visible */
+  }
+  
+  .scroll-to-top:hover {
+    background-color: #DCDCDC;
+    color: #A9A9A9;
+  }
+  

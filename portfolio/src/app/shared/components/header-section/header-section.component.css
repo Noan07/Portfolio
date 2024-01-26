@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+}
+
+.behind-text {
+    color: white;
+    font-size: 100px;
+    font-family: logo;
+    
+    z-index: 1;
+}
+
+.text {
+    color: black;
+    font-size: 45px;
+    position: absolute;
+    font-family: text;
+    z-index: 2;
+}
+
+.separator {
+    text-align: center;
+    width: 10%;
+    margin-top: 25px;
+}

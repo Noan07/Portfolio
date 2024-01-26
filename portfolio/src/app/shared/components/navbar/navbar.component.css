@@ -1,0 +1,67 @@
+.custom-toolbar {
+    background-color: #FFFFFF; 
+    color: #000000; 
+    padding-left: 4em;
+    padding-right: 4em;
+}
+
+.toolbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-family: logo;
+}
+
+.center-section {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.mat-mdc-button {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.toolbar-content {
+    height: 100%;
+}
+
+.nav-item {
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    font-size: large;
+    height: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-family: text;
+}
+
+.navbar {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+/*     position: fixed;
+ */}
+
+.nav-item:hover {
+    color: #FFFFFF;
+    background-color: #000000;
+    opacity: 0.89;
+    transition: background-color 0.3s, opacity 0.3s; 
+}
+.nav-item:active {
+    color: #FFFFFF;
+    background-color: #000000;
+}
