@@ -1,0 +1,16 @@
+.multi-progress-container {
+    text-align: left;
+    width: 350px;
+  }
+  
+  .general-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: grey;
+    margin-bottom: 30px;
+  }
+  
+  .progress-item {
+    margin-bottom: 10px;
+  }
+  

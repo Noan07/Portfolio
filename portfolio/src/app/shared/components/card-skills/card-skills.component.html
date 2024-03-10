@@ -1,0 +1,6 @@
+<div class="multi-progress-container">
+    <div class="general-title">{{ generalTitle }}</div>
+    <div *ngFor="let item of progressItems" class="progress-item">
+      <app-card-skill [titles]="item.titles" [percentage]="item.percentage"></app-card-skill>
+    </div>
+  </div>

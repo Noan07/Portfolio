@@ -1,0 +1,12 @@
+.progress-container {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  .item-titles {
+    font-size: 16px;
+  }
+
+.progress-container .mdc-linear-progress__bar-inner, .progress-container .mdc-linear-progress__buffer {
+    border-top-width: 8px;
+}
+  

@@ -1,5 +1,11 @@
 .section-presentation {
     background-color: #F5F5F5;
+    padding-top: 50px;
+    height: 100%;
+}
+
+.section-presentation:first {
+    background-color: #F5F5F5;
     padding-top: 100px;
     height: 100%;
 }
