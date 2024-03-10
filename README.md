@@ -1,4 +1,2 @@
 # portfolio_nrn
 
-
-k
